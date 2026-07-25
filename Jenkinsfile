@@ -65,7 +65,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry-1.docker.io/v2/', 'dckr_pat_4sBKotwSO6UzD0glIfBIwJyEptM') {
+                    docker.withRegistry('https://registry-1.docker.io/v2/', 'Suhas-Demo-github') {
 
                         // Push with build number tag
                         dockerImage.push("${env.IMAGE_TAG}")
