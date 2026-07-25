@@ -9,7 +9,7 @@ pipeline {
     }
 
     environment {
-        DOCKERHUB_REPO  = 'cloudprakhargupta/jenkins-int'
+        DOCKERHUB_REPO  = 'suhaschaudhri/ci_pipeline_demo'
         IMAGE_TAG       = "${env.BUILD_NUMBER}"
         LATEST_TAG      = 'latest'
         DOCKERFILE_PATH = 'Dockerfile'
@@ -65,7 +65,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry-1.docker.io/v2/', 'suhaschaudhri/ci_pipeline_demo') {
+                    docker.withRegistry('https://registry-1.docker.io/v2/', 'Jenkins_token') {
 
                         // Push with build number tag
                         dockerImage.push("${env.IMAGE_TAG}")
